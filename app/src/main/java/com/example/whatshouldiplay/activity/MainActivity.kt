@@ -1,9 +1,10 @@
-package com.example.whatshouldiplay
+package com.example.whatshouldiplay.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.whatshouldiplay.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
