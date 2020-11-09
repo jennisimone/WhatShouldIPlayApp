@@ -11,6 +11,7 @@ import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
 import com.example.whatshouldiplay.repository.GameRepository
+import java.util.*
 import kotlin.random.Random
 
 const val GAME = "game"
@@ -20,12 +21,7 @@ class GameSelection : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_selection)
-        val spinner: Spinner = findViewById(R.id.spinner)
-        spinner.adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_item,
-            Genre.values()
-        )
+        populateSpinner()
     }
 
     fun getGame(view: View) {
@@ -36,10 +32,19 @@ class GameSelection : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun getRandomGame(): Game {
+    private fun populateSpinner() {
+        val spinner: Spinner = findViewById(R.id.spinner)
+        spinner.adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            Genre.values()
+        )
+    }
+
+    private fun getRandomGame(): Game {
         val repo: GameRepository = GameRepository(this)
         val allGames = repo.getAllGames()
-
-        return allGames[Random(allGames.size).nextInt()]
+        allGames.shuffle()
+        return allGames[0]
     }
 }

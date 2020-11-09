@@ -2,4 +2,11 @@
     <string name="app_name">What should I play</string>
     <string name="button_main">What should I play?</string>
     <string name="button_add">Add game</string>
+    <string name="game_name_input">Name of game</string>
+    <string name="add_new_game">Add new game</string>
+    <string name="genre">Genre</string>
+    <string name="multiplayer">Multiplayer?</string>
+    <string name="add_game_button">Add game</string>
+    <string name="selection_genre_query">Do you want to play a specific genre?</string>
+    <string name="find_me_a_game">Find me a game!</string>
 </resources>

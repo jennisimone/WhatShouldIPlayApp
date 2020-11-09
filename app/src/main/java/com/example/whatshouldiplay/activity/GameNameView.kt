@@ -12,7 +12,7 @@ class GameNameView : AppCompatActivity() {
 
         val gameName = intent.getStringExtra(GAME)
 
-        val textView = findViewById<TextView>(R.id.textView).apply {
+        val textView = findViewById<TextView>(R.id.textView2).apply {
             text = gameName
         }
     }
