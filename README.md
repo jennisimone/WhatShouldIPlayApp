@@ -10,3 +10,6 @@ Using this application, you should be able to add games to your local db (SQLite
  
 ## Technology
 This application is written in Kotlin and uses a SQLite database.
+
+## More information
+More infortmation about previously added features and incoming features can be found [here](https://trello.com/b/s7L79inC/what-should-i-play)
