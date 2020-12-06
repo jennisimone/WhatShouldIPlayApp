@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.example.whatshouldiplay.R
+import com.example.whatshouldiplay.activity.MainActivity
 import com.example.whatshouldiplay.activity.select.GAME
 
 class GameAdded : AppCompatActivity() {
@@ -22,6 +23,12 @@ class GameAdded : AppCompatActivity() {
 
     fun addGame(view: View) {
         val intent = Intent(this, AddGame::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    fun backToHome(view: View) {
+        val intent = Intent(this, MainActivity::class.java).apply {
         }
         startActivity(intent)
     }

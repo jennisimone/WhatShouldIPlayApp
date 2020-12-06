@@ -30,7 +30,7 @@ class AddGame : AppCompatActivity() {
         val gameNameEditText: EditText = findViewById(R.id.editTextGameName)
         val genreSpinner: Spinner = findViewById(R.id.genreSpinner)
         val platformSpinner: Spinner = findViewById(R.id.platformSpinner)
-        val multiplayerChip: SwitchCompat = findViewById(R.id.chip4)
+        val multiplayerChip: SwitchCompat = findViewById(R.id.multiplayer)
 
         val gameName = gameNameEditText.text.toString()
         val genre = Genre.valueOf(genreSpinner.selectedItem.toString())

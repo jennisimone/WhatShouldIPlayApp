@@ -20,7 +20,7 @@ class GameLibrary : AppCompatActivity() {
     }
 
     private fun getGameInfo(gameName: String) {
-        val intent = Intent(this, GameNameView::class.java).apply {
+        val intent = Intent(this, GameDetail::class.java).apply {
             putExtra(GAME, gameName)
         }
         startActivity(intent)

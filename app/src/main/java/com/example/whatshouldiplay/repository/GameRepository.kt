@@ -44,11 +44,17 @@ class GameRepository(context: Context) {
     }
 
     fun getFilteredGames(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): List<Game> {
-        return getAllGames().filter {game ->
-                game.multiPlayer == multiplayer
-                genre.contains(game.genre.name)
-                platform.contains(game.platform.name)
+        val allGames = getAllGames()
+        if(multiplayer) {
+            allGames.filter { game -> game.multiPlayer == multiplayer }
         }
+        if (genre.isNotEmpty()) {
+            allGames.filter { game -> genre.contains(game.genre.name) }
+        }
+        if (platform.isNotEmpty()) {
+            allGames.filter { game -> platform.contains(game.platform.name) }
+        }
+        return allGames
     }
 
     fun getGame(name: String): Game {
@@ -67,7 +73,7 @@ class GameRepository(context: Context) {
         return convertToGame(cursor)[0]
     }
 
-    fun deleteGames(gameName: Array<String>) {
+    fun deleteGame(gameName: Array<String>) {
         val db = dbHelper.writableDatabase
         val selection = "${GameEntry.COLUMN_NAME_TITLE} =?"
 
@@ -78,7 +84,7 @@ class GameRepository(context: Context) {
         )
     }
 
-    fun amend(game: Game): Long? {
+    fun amend(game: Game) {
         val db = dbHelper.writableDatabase
         val selection = "$_ID =?"
         val values = ContentValues().apply {
@@ -95,7 +101,6 @@ class GameRepository(context: Context) {
             arrayOf(game.id.toString())
         )
 
-        return db?.insert(GameEntry.TABLE_NAME, null, values)
     }
 
     private fun convertToGame(cursor: Cursor): ArrayList<Game> {
