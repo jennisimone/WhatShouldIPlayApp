@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.GameAdded"></activity>
-        <activity android:name=".activity.GameLibrary" />
-        <activity android:name=".activity.AddGame" />
-        <activity android:name=".activity.GameNameView" />
-        <activity android:name=".activity.GameSelection" />
+        <activity android:name=".activity.library.GameDetail"></activity>
+        <activity android:name=".activity.add.GameAdded" />
+        <activity android:name=".activity.library.GameLibrary" />
+        <activity android:name=".activity.add.AddGame" />
+        <activity android:name=".activity.select.GameNameView" />
+        <activity android:name=".activity.select.GameSelection" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.whatshouldiplay.R
+import com.example.whatshouldiplay.activity.add.AddGame
+import com.example.whatshouldiplay.activity.library.GameLibrary
+import com.example.whatshouldiplay.activity.select.GameSelection
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

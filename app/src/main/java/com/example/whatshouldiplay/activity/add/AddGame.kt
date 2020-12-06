@@ -1,4 +1,4 @@
-package com.example.whatshouldiplay.activity
+package com.example.whatshouldiplay.activity.add
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
+import com.example.whatshouldiplay.activity.select.GAME
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
 import com.example.whatshouldiplay.domain.Platform

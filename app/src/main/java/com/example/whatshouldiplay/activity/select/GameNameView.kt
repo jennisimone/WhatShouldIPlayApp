@@ -1,4 +1,4 @@
-package com.example.whatshouldiplay.activity
+package com.example.whatshouldiplay.activity.select
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity

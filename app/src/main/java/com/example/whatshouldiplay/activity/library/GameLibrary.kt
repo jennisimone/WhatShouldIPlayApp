@@ -1,4 +1,4 @@
-package com.example.whatshouldiplay.activity
+package com.example.whatshouldiplay.activity.library
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.whatshouldiplay.R
+import com.example.whatshouldiplay.activity.select.GAME
+import com.example.whatshouldiplay.activity.select.GameNameView
 import com.example.whatshouldiplay.repository.GameRepository
 
 

@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.provider.BaseColumns
+import android.provider.BaseColumns._ID
 import com.example.whatshouldiplay.database.GameContract.GameEntry
 import com.example.whatshouldiplay.database.SQLiteDBHelper
 import com.example.whatshouldiplay.domain.Game
@@ -50,6 +51,22 @@ class GameRepository(context: Context) {
         }
     }
 
+    fun getGame(name: String): Game {
+        val db = dbHelper.readableDatabase
+        val selection = "${GameEntry.COLUMN_NAME_TITLE} =?"
+
+        val cursor = db.query(
+            GameEntry.TABLE_NAME,
+            null,
+            selection,
+            arrayOf(name),
+            null,
+            null,
+            null
+        )
+        return convertToGame(cursor)[0]
+    }
+
     fun deleteGames(gameName: Array<String>) {
         val db = dbHelper.writableDatabase
         val selection = "${GameEntry.COLUMN_NAME_TITLE} =?"
@@ -59,6 +76,26 @@ class GameRepository(context: Context) {
             selection,
             gameName
         )
+    }
+
+    fun amend(game: Game): Long? {
+        val db = dbHelper.writableDatabase
+        val selection = "$_ID =?"
+        val values = ContentValues().apply {
+            put(GameEntry.COLUMN_NAME_TITLE, game.name)
+            put(GameEntry.COLUMN_NAME_GENRE, game.genre.name)
+            put(GameEntry.COLUMN_NAME_PLATFORM, game.platform.name)
+            put(GameEntry.COLUMN_NAME_MULTIPLAYER, game.multiPlayer)
+        }
+        
+        db.update(
+            GameEntry.TABLE_NAME,
+            values,
+            selection,
+            arrayOf(game.id.toString())
+        )
+
+        return db?.insert(GameEntry.TABLE_NAME, null, values)
     }
 
     private fun convertToGame(cursor: Cursor): ArrayList<Game> {

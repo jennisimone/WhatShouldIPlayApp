@@ -1,4 +1,4 @@
-package com.example.whatshouldiplay.activity
+package com.example.whatshouldiplay.activity.select
 
 import android.content.Intent
 import android.os.Bundle
