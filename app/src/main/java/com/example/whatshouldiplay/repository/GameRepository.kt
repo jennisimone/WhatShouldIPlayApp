@@ -8,6 +8,7 @@ import com.example.whatshouldiplay.database.GameContract.GameEntry
 import com.example.whatshouldiplay.database.SQLiteDBHelper
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
+import com.example.whatshouldiplay.domain.Platform
 
 class GameRepository(context: Context) {
     private val dbHelper = SQLiteDBHelper(context)
@@ -17,13 +18,14 @@ class GameRepository(context: Context) {
         val values = ContentValues().apply {
             put(GameEntry.COLUMN_NAME_TITLE, game.name)
             put(GameEntry.COLUMN_NAME_GENRE, game.genre.name)
+            put(GameEntry.COLUMN_NAME_PLATFORM, game.platform.name)
             put(GameEntry.COLUMN_NAME_MULTIPLAYER, game.multiPlayer)
         }
 
         return db?.insert(GameEntry.TABLE_NAME, null, values)
     }
 
-    fun getAllGames(): ArrayList<Game> {
+    fun getAllGames(): List<Game> {
         val db = dbHelper.readableDatabase
         val sortOrder = "${GameEntry.COLUMN_NAME_TITLE} asc"
 
@@ -40,39 +42,23 @@ class GameRepository(context: Context) {
         return convertToGame(cursor)
     }
 
-    fun getMultiPlayerGames(): ArrayList<Game> {
-        val db = dbHelper.readableDatabase
-        val selection = "${GameEntry.COLUMN_NAME_MULTIPLAYER} = ?"
-        val selectionArgs = arrayOf("1")
-        val sortOrder = "${GameEntry.COLUMN_NAME_TITLE} asc"
-
-        val cursor = db.query(
-            GameEntry.TABLE_NAME,
-            null,
-            selection,
-            selectionArgs,
-            null,
-            null,
-            sortOrder
-        )
-        return convertToGame(cursor)
+    fun getFilteredGames(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): List<Game> {
+        return getAllGames().filter {game ->
+                game.multiPlayer == multiplayer
+                genre.contains(game.genre.name)
+                platform.contains(game.platform.name)
+        }
     }
 
-    fun getGamesByGenre(genre: Array<String>): ArrayList<Game> {
-        val db = dbHelper.readableDatabase
-        val selection = "${GameEntry.COLUMN_NAME_GENRE} = ?"
-        val sortOrder = "${GameEntry.COLUMN_NAME_TITLE} asc"
+    fun deleteGames(gameName: Array<String>) {
+        val db = dbHelper.writableDatabase
+        val selection = "${GameEntry.COLUMN_NAME_TITLE} =?"
 
-        val cursor = db.query(
+        db.delete(
             GameEntry.TABLE_NAME,
-            null,
             selection,
-            genre,
-            null,
-            null,
-            sortOrder
+            gameName
         )
-        return convertToGame(cursor)
     }
 
     private fun convertToGame(cursor: Cursor): ArrayList<Game> {
@@ -83,12 +69,14 @@ class GameRepository(context: Context) {
                 val idIndex = getColumnIndexOrThrow(BaseColumns._ID)
                 val nameIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_TITLE)
                 val genreIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_GENRE)
+                val platformIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_PLATFORM)
                 val multiplayerIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_MULTIPLAYER)
 
                 val game = Game(
                     cursor.getLong(idIndex),
                     cursor.getString(nameIndex),
                     Genre.valueOf(cursor.getString(genreIndex)),
+                    Platform.valueOf(cursor.getString(platformIndex)),
                     intToBoolean(cursor.getInt(multiplayerIndex))
                 )
                 allGames.add(game)

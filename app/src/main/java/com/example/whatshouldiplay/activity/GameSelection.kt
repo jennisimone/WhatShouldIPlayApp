@@ -10,7 +10,9 @@ import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
+import com.example.whatshouldiplay.domain.Platform
 import com.example.whatshouldiplay.repository.GameRepository
+import kotlinx.android.synthetic.main.activity_add_game.*
 
 const val GAME = "game"
 
@@ -19,7 +21,8 @@ class GameSelection : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_selection)
-        populateSpinner()
+        populateGenreSpinner()
+        populatePlatformSpinner()
     }
 
     fun getGame(view: View) {
@@ -31,35 +34,42 @@ class GameSelection : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun populateGenreSpinner() {
+        val spinner: Spinner = findViewById(R.id.genreSpinner)
+        spinner.adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            getGenreValues()
+        )
+    }
+
+    private fun populatePlatformSpinner() {
+        val spinner: Spinner = findViewById(R.id.platformSpinner)
+        spinner.adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            getPlatformValues()
+        )
+    }
+
     private fun getGameUsingSearchParams(): Game {
-        val genreSpinner = findViewById<Spinner>(R.id.spinner)
+        val genreSpinner = findViewById<Spinner>(R.id.genreSpinner)
         val multiplayerSwitch = findViewById<SwitchCompat>(R.id.switch1)
         val genre: String = genreSpinner.selectedItem.toString()
+        val platform: String = platformSpinner.selectedItem.toString()
         val multiplayer = multiplayerSwitch.isChecked
 
         val randomGame: Game
 
         randomGame = when {
-            genre != "ALL" -> {
-                getGameFromSpecificGenre(Array(1) { genre.toString() })
-            }
-            multiplayer -> {
-                getMultiplayerGame()
+            genre != "ALL" || platform != "ALL" || multiplayer -> {
+                getFilteredGame(multiplayer, Array(1) { genre }, Array(1) { platform })
             }
             else -> {
                 getRandomGame()
             }
         }
         return randomGame
-    }
-
-    private fun populateSpinner() {
-        val spinner: Spinner = findViewById(R.id.spinner)
-        spinner.adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_item,
-            getGenreValues()
-        )
     }
 
     private fun getGenreValues(): MutableList<String> {
@@ -71,24 +81,26 @@ class GameSelection : AppCompatActivity() {
         return genres
     }
 
+    private fun getPlatformValues(): MutableList<String> {
+        val platforms = Platform.values().toMutableList().map {
+                genre -> genre.toString()
+        }.toMutableList()
+        platforms.add(0, "ALL")
+
+        return platforms
+    }
+
     private fun getRandomGame(): Game {
         val repo: GameRepository = GameRepository(this)
         val allGames = repo.getAllGames()
-        allGames.shuffle()
+        allGames.toMutableList().shuffle()
         return allGames[0]
     }
 
-    private fun getMultiplayerGame(): Game {
+    private fun getFilteredGame(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): Game {
         val repo: GameRepository = GameRepository(this)
-        val allGames = repo.getMultiPlayerGames()
-        allGames.shuffle()
-        return allGames[0]
-    }
-
-    private fun getGameFromSpecificGenre(genre: Array<String>): Game {
-        val repo: GameRepository = GameRepository(this)
-        val allGames = repo.getGamesByGenre(genre)
-        allGames.shuffle()
+        val allGames = repo.getFilteredGames(multiplayer, genre, platform)
+        allGames.toMutableList().shuffle()
         return allGames[0]
     }
 }

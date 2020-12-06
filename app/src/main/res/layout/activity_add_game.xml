@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/genreSpinner"
         android:layout_width="365dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
@@ -39,6 +39,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextGameName" />
+
+    <Spinner
+        android:id="@+id/platformSpinner"
+        android:layout_width="365dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:prompt="@string/platform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genreSpinner" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/chip4"
@@ -50,14 +60,14 @@
         android:text="@string/multiplayer"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/platformSpinner" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="@string/add_game_button"
+        android:text="@string/add_game"
         android:textSize="30sp"
         android:onClick="addGame"
         app:layout_constraintEnd_toEndOf="parent"

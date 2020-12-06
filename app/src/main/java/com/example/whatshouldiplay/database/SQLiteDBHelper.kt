@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.provider.BaseColumns
 import com.example.whatshouldiplay.database.GameContract.GameEntry.COLUMN_NAME_GENRE
 import com.example.whatshouldiplay.database.GameContract.GameEntry.COLUMN_NAME_MULTIPLAYER
+import com.example.whatshouldiplay.database.GameContract.GameEntry.COLUMN_NAME_PLATFORM
 import com.example.whatshouldiplay.database.GameContract.GameEntry.COLUMN_NAME_TITLE
 import com.example.whatshouldiplay.database.GameContract.GameEntry.TABLE_NAME
 
@@ -14,6 +15,7 @@ private const val SQL_CREATE_ENTRIES =
             "${BaseColumns._ID} INTEGER PRIMARY KEY," +
             "$COLUMN_NAME_TITLE TEXT," +
             "$COLUMN_NAME_GENRE TEXT," +
+            "$COLUMN_NAME_PLATFORM TEXT," +
             "$COLUMN_NAME_MULTIPLAYER INT UNSIGNED)"
 
 private const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS $TABLE_NAME"

@@ -23,4 +23,10 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
+
+    fun gameLibrary(view: View) {
+        val intent = Intent(this, GameLibrary::class.java).apply {
+        }
+        startActivity(intent)
+    }
 }
