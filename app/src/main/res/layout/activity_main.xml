@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".activity.MainActivity">
 
     <Button
         android:id="@+id/gameLibrary"
         android:layout_width="128dp"
         android:layout_height="43dp"
+        android:background="@color/tertiaryButton"
+        android:alpha="0.75"
         android:onClick="gameLibrary"
         android:text="@string/game_library"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,21 +28,29 @@
         android:id="@+id/gameSelection"
         android:layout_width="292dp"
         android:layout_height="53dp"
-        android:text="@string/game_selection"
-        android:textSize="24sp"
+        android:background="@color/primaryButton"
+        android:alpha="0.75"
         android:onClick="chooseGame"
+        android:text="@string/game_selection"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.188" />
 
     <Button
         android:id="@+id/addGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/add_game"
+        android:background="@color/secondaryButton"
+        android:alpha="0.75"
         android:onClick="addGame"
+        android:text="@string/add_game"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameSelection" />

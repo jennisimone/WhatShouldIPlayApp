@@ -12,7 +12,7 @@
         <activity android:name=".activity.library.GameDetail"
             android:parentActivityName=".activity.library.GameLibrary" />
         <activity android:name=".activity.add.GameAdded"
-            android:parentActivityName=".activity.add.AddGame" />
+            android:parentActivityName=".activity.MainActivity" />
         <activity android:name=".activity.library.GameLibrary"
             android:parentActivityName=".activity.MainActivity" />
         <activity android:name=".activity.add.AddGame"

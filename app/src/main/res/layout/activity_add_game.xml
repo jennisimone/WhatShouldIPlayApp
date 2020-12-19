@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:backgroundTint="#80514F4F"
+    android:backgroundTintMode="src_over"
     tools:context=".activity.add.AddGame">
 
     <TextView
@@ -67,6 +70,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:alpha="0.7"
+        android:background="@color/secondaryButton"
         android:text="@string/add_game"
         android:textSize="30sp"
         android:onClick="addGame"

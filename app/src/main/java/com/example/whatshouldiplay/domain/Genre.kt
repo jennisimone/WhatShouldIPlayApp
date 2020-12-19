@@ -2,6 +2,8 @@ package com.example.whatshouldiplay.domain
 
 enum class Genre {
     ADVENTURE,
+    FIGHTING,
+    HORROR,
     RPG,
     PARTY,
     RACING,
