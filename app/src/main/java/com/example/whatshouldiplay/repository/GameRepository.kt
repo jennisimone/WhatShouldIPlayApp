@@ -10,6 +10,8 @@ import com.example.whatshouldiplay.database.SQLiteDBHelper
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
 import com.example.whatshouldiplay.domain.Platform
+import java.util.*
+import kotlin.collections.ArrayList
 
 class GameRepository(context: Context) {
     private val dbHelper = SQLiteDBHelper(context)
@@ -44,15 +46,15 @@ class GameRepository(context: Context) {
     }
 
     fun getFilteredGames(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): List<Game> {
-        val allGames = getAllGames()
+        var allGames = getAllGames()
         if(multiplayer) {
-            allGames.filter { game -> game.multiPlayer == multiplayer }
+            allGames = allGames.filter { game -> game.multiPlayer == multiplayer }
         }
-        if (genre.isNotEmpty()) {
-            allGames.filter { game -> genre.contains(game.genre.name) }
+        if (!genre.contains("ALL")) {
+            allGames = allGames.filter { game -> genre.contains(game.genre.name) }
         }
-        if (platform.isNotEmpty()) {
-            allGames.filter { game -> platform.contains(game.platform.name) }
+        if (!platform.contains("ALL")) {
+            allGames = allGames.filter { game -> platform.contains(game.platform.name) }
         }
         return allGames
     }

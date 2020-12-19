@@ -92,15 +92,15 @@ class GameSelection : AppCompatActivity() {
 
     private fun getRandomGame(): Game {
         val repo: GameRepository = GameRepository(this)
-        val allGames = repo.getAllGames()
-        allGames.toMutableList().shuffle()
+        var allGames = repo.getAllGames()
+        allGames = allGames.toMutableList().shuffled()
         return allGames[0]
     }
 
     private fun getFilteredGame(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): Game {
         val repo: GameRepository = GameRepository(this)
-        val allGames = repo.getFilteredGames(multiplayer, genre, platform)
-        allGames.toMutableList().shuffle()
+        var allGames = repo.getFilteredGames(multiplayer, genre, platform)
+        allGames = allGames.toMutableList().shuffled()
         return allGames[0]
     }
 }

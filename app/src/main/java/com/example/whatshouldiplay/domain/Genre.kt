@@ -6,6 +6,8 @@ enum class Genre {
     PARTY,
     RACING,
     SIMULATION,
+    POINT_AND_CLICK,
+    PLATFORM,
     PUZZLE,
     SHOOTER,
     SPORT,

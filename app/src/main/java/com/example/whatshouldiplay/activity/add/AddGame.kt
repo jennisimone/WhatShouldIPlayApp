@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.view.size
 import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.activity.select.GAME
 import com.example.whatshouldiplay.domain.Game
