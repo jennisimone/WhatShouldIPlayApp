@@ -11,7 +11,6 @@ import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.activity.select.GAME
 import com.example.whatshouldiplay.repository.GameRepository
 
-
 class GameLibrary : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,23 +26,50 @@ class GameLibrary : AppCompatActivity() {
     }
 
     private fun populateRows() {
-        val gameRepository = GameRepository(this)
-        val gameNames = gameRepository.getAllGames().map { game -> game.name }
+        var gameNames = getAvailableGames()
+        val noGameFound = "No games found ☹️"
+
+        if (gameNames.isEmpty()) {
+            gameNames = listOf(noGameFound)
+        }
+
         for (index in gameNames.indices) {
             val gameListTable = findViewById<TableLayout>(R.id.GameList)
             val row = TableRow(this)
             val nameOfGame = TextView(this)
+
             nameOfGame.text = gameNames[index]
             nameOfGame.textSize = 22.0F
             nameOfGame.tag = row.id
             nameOfGame.setTextColor(Color.WHITE)
+
             row.addView(nameOfGame)
-            row.isClickable = true
-            row.setOnClickListener { getGameInfo(gameNames[index]); nameOfGame.setTextColor(Color.parseColor("#FFF79385")) }
+
+            if (nameOfGame.text != noGameFound) {
+                row.isClickable = true
+                row.setOnClickListener { getGameInfo(gameNames[index]); nameOfGame.setTextColor(Color.parseColor("#FFF79385")) }
+            }
+
             gameListTable.addView(
                 row,
                 TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT)
             )
+        }
+    }
+
+    private fun getAvailableGames(): List<String> {
+        val gameRepository = GameRepository(this)
+
+        val filtered = intent.getBooleanExtra("filtered", false);
+
+        return if (filtered) {
+            val multiplayer = intent.getBooleanExtra("multiplayer", false)
+            val genre = intent.getStringArrayExtra("genre")!!.copyOf()
+            val platform = intent.getStringArrayExtra("platform")!!.copyOf()
+
+            gameRepository.getFilteredGames(multiplayer, genre, platform).map { game -> game.name }
+        } else {
+            gameRepository.getAllGames().map { game -> game.name }
         }
     }
 }

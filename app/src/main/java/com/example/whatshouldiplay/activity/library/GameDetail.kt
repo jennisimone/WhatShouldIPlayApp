@@ -1,16 +1,14 @@
 package com.example.whatshouldiplay.activity.library
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
-import com.example.whatshouldiplay.activity.add.GameAdded
 import com.example.whatshouldiplay.activity.select.GAME
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
@@ -36,8 +34,7 @@ class GameDetail : AppCompatActivity() {
         val gameRepository = GameRepository(this)
         gameRepository.amend(game)
 
-        val intent = Intent(this, GameLibrary::class.java)
-        startActivity(intent)
+        this.finish()
     }
 
     private fun updateGame() {
@@ -57,8 +54,8 @@ class GameDetail : AppCompatActivity() {
     fun delete(view: View) {
         val gameRepository = GameRepository(this)
         gameRepository.deleteGame(arrayOf(game.name))
-        val intent = Intent(this, GameLibrary::class.java)
-        startActivity(intent)
+
+        this.finish()
     }
 
     private fun populateForm() {

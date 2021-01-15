@@ -9,18 +9,30 @@
         android:roundIcon="@mipmap/main_launch_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.library.GameDetail"
+        <activity
+            android:name=".activity.library.GameDetail"
             android:parentActivityName=".activity.library.GameLibrary" />
-        <activity android:name=".activity.add.GameAdded"
+        <activity
+            android:name=".activity.add.GameAdded"
             android:parentActivityName=".activity.MainActivity" />
-        <activity android:name=".activity.library.GameLibrary"
+        <activity
+            android:name=".activity.library.GameLibrary"
+            android:parentActivityName=".activity.library.LibrarySelection" />
+        <activity
+            android:name=".activity.add.AddGame"
             android:parentActivityName=".activity.MainActivity" />
-        <activity android:name=".activity.add.AddGame"
-            android:parentActivityName=".activity.MainActivity" />
-        <activity android:name=".activity.select.GameNameView"
+        <activity
+            android:name=".activity.select.GameNameView"
             android:parentActivityName=".activity.select.GameSelection" />
-        <activity android:name=".activity.select.GameSelection"
+        <activity
+            android:name=".activity.select.GameSelection"
             android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.library.LibrarySelection"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.library.GameFilter"
+            android:parentActivityName=".activity.library.LibrarySelection" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
