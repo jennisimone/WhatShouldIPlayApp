@@ -93,14 +93,24 @@ class GameSelection : AppCompatActivity() {
     private fun getRandomGame(): Game {
         val repo: GameRepository = GameRepository(this)
         var allGames = repo.getAllGames()
+
         allGames = allGames.toMutableList().shuffled()
-        return allGames[0]
+
+        if (!allGames.isEmpty()) {
+            return allGames[0]
+        }
+        return Game(0, "Boo 👻 no games found! Add some on the home screen!", Genre.ADVENTURE, Platform.DS, false)
     }
 
     private fun getFilteredGame(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): Game {
         val repo: GameRepository = GameRepository(this)
         var allGames = repo.getFilteredGames(multiplayer, genre, platform)
+
         allGames = allGames.toMutableList().shuffled()
-        return allGames[0]
+
+        if (!allGames.isEmpty()) {
+            return allGames[0]
+        }
+        return Game(0, "Sorry it looks like you don't have any games that specific.. 😰 Try a different search! ", Genre.ADVENTURE, Platform.DS, false)
     }
 }

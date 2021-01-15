@@ -16,5 +16,9 @@ enum class Platform {
     WIIU,
     WII,
     VR,
+    XBOX,
+    XBOX_360,
+    XBOX_ONE,
+    XBOX_SERIES_X_S,
     OTHER
 }

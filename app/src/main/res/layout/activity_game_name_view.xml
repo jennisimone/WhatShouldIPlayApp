@@ -7,13 +7,17 @@
     android:background="@drawable/background"
     android:backgroundTint="#80514F4F"
     android:backgroundTintMode="src_over"
+    android:textAlignment="center"
     tools:context=".activity.select.GameNameView">
 
     <TextView
         android:id="@+id/gameName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/app_name"
+        android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

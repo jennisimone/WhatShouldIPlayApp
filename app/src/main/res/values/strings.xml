@@ -11,7 +11,7 @@
     <string name="selection_genre_query">Do you want to play a specific genre?</string>
     <string name="selection_platform_query">Do you want to play on a specific platform?</string>
     <string name="find_me_a_game">Find me a game!</string>
-    <string name="game_library_description">Here is a list of games you have added, click on a game to see more information or edit it.</string>
+    <string name="game_library_description">Here is a list of games you have added, tap on a game to edit it.</string>
     <string name="add_another_game">Add another game</string>
     <string name="back_to_home">Go to homepage</string>
     <string name="save">Save</string>
