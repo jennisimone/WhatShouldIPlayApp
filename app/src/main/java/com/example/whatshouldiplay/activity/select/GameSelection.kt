@@ -55,15 +55,17 @@ class GameSelection : AppCompatActivity() {
     private fun getGameUsingSearchParams(): Game {
         val genreSpinner = findViewById<Spinner>(R.id.genreSpinner)
         val multiplayerSwitch = findViewById<SwitchCompat>(R.id.switch1)
+        val completedSwitch = findViewById<SwitchCompat>(R.id.includeCompleted)
         val genre: String = genreSpinner.selectedItem.toString()
         val platform: String = platformSpinner.selectedItem.toString()
+        val includeCompleted = completedSwitch.isChecked
         val multiplayer = multiplayerSwitch.isChecked
 
         val randomGame: Game
 
         randomGame = when {
-            genre != "ALL" || platform != "ALL" || multiplayer -> {
-                getFilteredGame(multiplayer, Array(1) { genre }, Array(1) { platform })
+            genre != "ALL" || platform != "ALL" || multiplayer || includeCompleted -> {
+                getFilteredGame(includeCompleted, multiplayer, Array(1) { genre }, Array(1) { platform })
             }
             else -> {
                 getRandomGame()
@@ -74,35 +76,45 @@ class GameSelection : AppCompatActivity() {
 
     private fun getGenreValues(): List<String> {
         val genreRepository = GenreRepository(this)
-        return genreRepository.getAllGenres()
+        val allGenres: MutableList<String> = genreRepository.getAllGenres().toMutableList()
+        allGenres.add(0, "ALL")
+        return allGenres
     }
 
     private fun getPlatformValues(): List<String> {
         val platformRepository = PlatformRepository(this)
-        return platformRepository.getAllPlatforms()
+        val allPlatforms = platformRepository.getAllPlatforms().toMutableList()
+        allPlatforms.add(0, "ALL")
+        return allPlatforms
     }
 
     private fun getRandomGame(): Game {
         val repo = GameRepository(this)
-        var allGames = repo.getAllGames()
+        var allGames = repo.getAllGames(false)
 
         allGames = allGames.toMutableList().shuffled()
 
         if (!allGames.isEmpty()) {
             return allGames[0]
         }
-        return Game(0, "Boo 👻 no games found! Add some on the home screen!", "ADVENTURE", "MOBILE", false)
+        return Game(0, "Boo 👻 no games found! Add some on the home screen!", "ADVENTURE", "MOBILE",
+            completed = false,
+            multiPlayer = false
+        )
     }
 
-    private fun getFilteredGame(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): Game {
+    private fun getFilteredGame(includeCompleted: Boolean, multiplayer: Boolean, genre: Array<String>, platform: Array<String>): Game {
         val repo: GameRepository = GameRepository(this)
-        var allGames = repo.getFilteredGames(multiplayer, genre, platform)
+        var allGames = repo.getFilteredGames(includeCompleted, multiplayer, genre, platform)
 
         allGames = allGames.toMutableList().shuffled()
 
         if (!allGames.isEmpty()) {
             return allGames[0]
         }
-        return Game(0, "Sorry it looks like you don't have any games that specific.. 😰 Try a different search! ", "ADVENTURE", "MOBILE", false)
+        return Game(0, "Sorry it looks like you don't have any games that specific.. 😰 Try a different search! ", "ADVENTURE", "MOBILE",
+            completed = false,
+            multiPlayer = false
+        )
     }
 }

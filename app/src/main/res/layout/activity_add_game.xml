@@ -63,11 +63,25 @@
         app:layout_constraintTop_toBottomOf="@+id/genreSpinner" />
 
     <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/spacegrotesk_regular"
+        android:text="@string/completed"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/multiplayer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/platformSpinner"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/multiplayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/spacegrotesk_regular"
         android:text="@string/multiplayer"
         android:textSize="30sp"

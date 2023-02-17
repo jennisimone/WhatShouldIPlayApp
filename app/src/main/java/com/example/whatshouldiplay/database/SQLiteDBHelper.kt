@@ -14,7 +14,8 @@ private const val SQL_CREATE_GAMES_ENTRIES =
             "${GameEntry.COLUMN_NAME_TITLE} TEXT," +
             "${GameEntry.COLUMN_NAME_GENRE} TEXT," +
             "${GameEntry.COLUMN_NAME_PLATFORM} TEXT," +
-            "${GameEntry.COLUMN_NAME_MULTIPLAYER} INT)"
+            "${GameEntry.COLUMN_NAME_COMPLETED} INTEGER DEFAULT 0," +
+            "${GameEntry.COLUMN_NAME_MULTIPLAYER} INTEGER DEFAULT 0)"
 
 private const val SQL_CREATE_PLATFORM_ENTRIES =
     "CREATE TABLE ${PlatformEntry.TABLE_NAME} (" +

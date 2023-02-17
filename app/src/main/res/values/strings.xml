@@ -11,6 +11,8 @@
     <string name="platform">Platform</string>
 
     <string name="multiplayer">Multiplayer?</string>
+    <string name="completed">Completed?</string>
+    <string name="include_completed">Include completed?</string>
     <string name="selection_genre_query">Do you want to play a specific genre?</string>
     <string name="selection_platform_query">Do you want to play on a specific platform?</string>
     <string name="find_me_a_game">Find me a game!</string>

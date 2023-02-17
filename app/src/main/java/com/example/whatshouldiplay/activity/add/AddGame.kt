@@ -31,13 +31,15 @@ class AddGame : AppCompatActivity() {
         val genreSpinner: Spinner = findViewById(R.id.genreSpinner)
         val platformSpinner: Spinner = findViewById(R.id.platformSpinner)
         val multiplayerChip: SwitchCompat = findViewById(R.id.multiplayer)
+        val completedChip: SwitchCompat = findViewById(R.id.completed)
 
         val gameName = gameNameEditText.text.toString()
         val genre = genreSpinner.selectedItem.toString()
         val platform = platformSpinner.selectedItem.toString()
+        val completed = completedChip.isChecked
         val multiplayer = multiplayerChip.isChecked
 
-        repo.add(Game(0, gameName, genre, platform, multiplayer))
+        repo.add(Game(0, gameName, genre, platform, completed, multiplayer))
 
         val intent = Intent(this, GameAdded::class.java).apply {
             putExtra(GAME, gameName)

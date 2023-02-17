@@ -8,6 +8,7 @@ class GameContract {
         const val COLUMN_NAME_TITLE = "name"
         const val COLUMN_NAME_GENRE = "genre"
         const val COLUMN_NAME_PLATFORM = "platform"
+        const val COLUMN_NAME_COMPLETED = "completed"
         const val COLUMN_NAME_MULTIPLAYER = "multiplayer"
     }
 }

@@ -41,14 +41,16 @@ class GameDetail : AppCompatActivity() {
         val gameNameEditText: EditText = findViewById(R.id.editTextGameName)
         val genreSpinner: Spinner = findViewById(R.id.genreSpinner)
         val platformSpinner: Spinner = findViewById(R.id.platformSpinner)
+        val completedChip: SwitchCompat = findViewById(R.id.completed)
         val multiplayerChip: SwitchCompat = findViewById(R.id.multiplayer)
 
         val gameName = gameNameEditText.text.toString()
         val genre = genreSpinner.selectedItem.toString()
         val platform = platformSpinner.selectedItem.toString()
+        val completed = completedChip.isChecked
         val multiplayer = multiplayerChip.isChecked
 
-        game = game.copy(name = gameName,  genre = genre, platform = platform, multiPlayer = multiplayer)
+        game = game.copy(name = gameName,  genre = genre, platform = platform, completed = completed, multiPlayer = multiplayer)
     }
 
     fun delete(view: View) {

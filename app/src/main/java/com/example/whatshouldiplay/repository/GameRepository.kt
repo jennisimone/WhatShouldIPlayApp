@@ -18,13 +18,14 @@ class GameRepository(context: Context) {
             put(GameEntry.COLUMN_NAME_TITLE, game.name)
             put(GameEntry.COLUMN_NAME_GENRE, game.genre)
             put(GameEntry.COLUMN_NAME_PLATFORM, game.platform)
+            put(GameEntry.COLUMN_NAME_COMPLETED, game.completed)
             put(GameEntry.COLUMN_NAME_MULTIPLAYER, game.multiPlayer)
         }
 
         return db?.insert(GameEntry.TABLE_NAME, null, values)
     }
 
-    fun getAllGames(): List<Game> {
+    fun getAllGames(shouldIncludeCompleted: Boolean = true): List<Game> {
         val db = dbHelper.readableDatabase
         val sortOrder = "${GameEntry.COLUMN_NAME_TITLE} asc"
 
@@ -38,11 +39,14 @@ class GameRepository(context: Context) {
             sortOrder
         )
 
-        return convertToGame(cursor)
+        return if(shouldIncludeCompleted) convertToGame(cursor) else convertToGame(cursor).filter { game -> !game.completed }
     }
 
-    fun getFilteredGames(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): List<Game> {
+    fun getFilteredGames(includeCompleted: Boolean = false, multiplayer: Boolean, genre: Array<String>, platform: Array<String>): List<Game> {
         var allGames = getAllGames()
+        if(!includeCompleted) {
+            allGames = allGames.filter { game -> game.completed == includeCompleted }
+        }
         if(multiplayer) {
             allGames = allGames.filter { game -> game.multiPlayer == multiplayer }
         }
@@ -89,6 +93,7 @@ class GameRepository(context: Context) {
             put(GameEntry.COLUMN_NAME_TITLE, game.name)
             put(GameEntry.COLUMN_NAME_GENRE, game.genre)
             put(GameEntry.COLUMN_NAME_PLATFORM, game.platform)
+            put(GameEntry.COLUMN_NAME_COMPLETED, game.completed)
             put(GameEntry.COLUMN_NAME_MULTIPLAYER, game.multiPlayer)
         }
         
@@ -110,6 +115,7 @@ class GameRepository(context: Context) {
                 val nameIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_TITLE)
                 val genreIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_GENRE)
                 val platformIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_PLATFORM)
+                val completedIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_COMPLETED)
                 val multiplayerIndex = getColumnIndexOrThrow(GameEntry.COLUMN_NAME_MULTIPLAYER)
 
                 val game = Game(
@@ -117,6 +123,7 @@ class GameRepository(context: Context) {
                     cursor.getString(nameIndex),
                     cursor.getString(genreIndex),
                     cursor.getString(platformIndex),
+                    intToBoolean(cursor.getInt(completedIndex)),
                     intToBoolean(cursor.getInt(multiplayerIndex))
                 )
                 allGames.add(game)

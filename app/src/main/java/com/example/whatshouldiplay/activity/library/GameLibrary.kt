@@ -64,11 +64,12 @@ class GameLibrary : AppCompatActivity() {
         val filtered = intent.getBooleanExtra("filtered", false);
 
         return if (filtered) {
+            val completed = intent.getBooleanExtra("completed", false)
             val multiplayer = intent.getBooleanExtra("multiplayer", false)
             val genre = intent.getStringArrayExtra("genre")!!.copyOf()
             val platform = intent.getStringArrayExtra("platform")!!.copyOf()
 
-            gameRepository.getFilteredGames(multiplayer, genre, platform).map { game -> game.name }
+            gameRepository.getFilteredGames(completed, multiplayer, genre, platform).map { game -> game.name }
         } else {
             gameRepository.getAllGames().map { game -> game.name }
         }
