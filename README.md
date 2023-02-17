@@ -1,4 +1,4 @@
-# What should I play?
+![what should I play](app/src/main/res/drawable-v24/docs_icon.png "What should I play")
 
 ## What is it?
 What should I play is an android application that I created to help decide on a video game to
