@@ -8,7 +8,7 @@ import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
-import com.example.whatshouldiplay.domain.Genre
+import com.example.whatshouldiplay.repository.GenreRepository
 import com.example.whatshouldiplay.repository.PlatformRepository
 import kotlinx.android.synthetic.main.activity_add_game.*
 
@@ -55,13 +55,9 @@ class GameFilter : AppCompatActivity() {
         )
     }
 
-    private fun getGenreValues(): MutableList<String> {
-        val genres = Genre.values().toMutableList().map {
-                genre -> genre.toString()
-        }.toMutableList()
-        genres.add(0, "ALL")
-
-        return genres
+    private fun getGenreValues(): List<String> {
+        val genreRepository = GenreRepository(this)
+        return genreRepository.getAllGenres()
     }
 
     private fun getPlatformValues(): List<String> {

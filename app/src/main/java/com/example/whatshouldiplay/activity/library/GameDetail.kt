@@ -11,8 +11,8 @@ import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.activity.select.GAME
 import com.example.whatshouldiplay.domain.Game
-import com.example.whatshouldiplay.domain.Genre
 import com.example.whatshouldiplay.repository.GameRepository
+import com.example.whatshouldiplay.repository.GenreRepository
 import com.example.whatshouldiplay.repository.PlatformRepository
 
 class GameDetail : AppCompatActivity() {
@@ -44,7 +44,7 @@ class GameDetail : AppCompatActivity() {
         val multiplayerChip: SwitchCompat = findViewById(R.id.multiplayer)
 
         val gameName = gameNameEditText.text.toString()
-        val genre = Genre.valueOf(genreSpinner.selectedItem.toString())
+        val genre = genreSpinner.selectedItem.toString()
         val platform = platformSpinner.selectedItem.toString()
         val multiplayer = multiplayerChip.isChecked
 
@@ -63,7 +63,7 @@ class GameDetail : AppCompatActivity() {
             text = game.name
         }
         findViewById<Spinner>(R.id.genreSpinner).apply {
-            setSelection(Genre.values().indexOf(game.genre))
+            setSelection(getGenreValues().indexOf(game.genre))
         }
         findViewById<Spinner>(R.id.platformSpinner).apply {
             setSelection(getPlatformValues().indexOf(game.platform))
@@ -85,7 +85,7 @@ class GameDetail : AppCompatActivity() {
         spinner.adapter = ArrayAdapter(
             this,
             android.R.layout.simple_spinner_item,
-            Genre.values()
+            getGenreValues()
         )
     }
 
@@ -101,5 +101,10 @@ class GameDetail : AppCompatActivity() {
     private fun getPlatformValues(): List<String> {
         val platformRepository = PlatformRepository(this)
         return platformRepository.getAllPlatforms()
+    }
+
+    private fun getGenreValues(): List<String> {
+        val genreRepository = GenreRepository(this)
+        return genreRepository.getAllGenres()
     }
 }

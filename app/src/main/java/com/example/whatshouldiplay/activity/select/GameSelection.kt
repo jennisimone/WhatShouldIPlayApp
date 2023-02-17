@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.domain.Game
-import com.example.whatshouldiplay.domain.Genre
 import com.example.whatshouldiplay.repository.GameRepository
+import com.example.whatshouldiplay.repository.GenreRepository
 import com.example.whatshouldiplay.repository.PlatformRepository
 import kotlinx.android.synthetic.main.activity_add_game.*
 
@@ -72,13 +72,9 @@ class GameSelection : AppCompatActivity() {
         return randomGame
     }
 
-    private fun getGenreValues(): MutableList<String> {
-        val genres = Genre.values().toMutableList().map {
-                genre -> genre.toString()
-        }.toMutableList()
-        genres.add(0, "ALL")
-
-        return genres
+    private fun getGenreValues(): List<String> {
+        val genreRepository = GenreRepository(this)
+        return genreRepository.getAllGenres()
     }
 
     private fun getPlatformValues(): List<String> {
@@ -87,7 +83,7 @@ class GameSelection : AppCompatActivity() {
     }
 
     private fun getRandomGame(): Game {
-        val repo: GameRepository = GameRepository(this)
+        val repo = GameRepository(this)
         var allGames = repo.getAllGames()
 
         allGames = allGames.toMutableList().shuffled()
@@ -95,7 +91,7 @@ class GameSelection : AppCompatActivity() {
         if (!allGames.isEmpty()) {
             return allGames[0]
         }
-        return Game(0, "Boo 👻 no games found! Add some on the home screen!", Genre.ADVENTURE, "DS", false)
+        return Game(0, "Boo 👻 no games found! Add some on the home screen!", "ADVENTURE", "MOBILE", false)
     }
 
     private fun getFilteredGame(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): Game {
@@ -107,6 +103,6 @@ class GameSelection : AppCompatActivity() {
         if (!allGames.isEmpty()) {
             return allGames[0]
         }
-        return Game(0, "Sorry it looks like you don't have any games that specific.. 😰 Try a different search! ", Genre.ADVENTURE, "DS", false)
+        return Game(0, "Sorry it looks like you don't have any games that specific.. 😰 Try a different search! ", "ADVENTURE", "MOBILE", false)
     }
 }

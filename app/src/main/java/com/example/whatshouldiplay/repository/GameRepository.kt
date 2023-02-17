@@ -8,7 +8,6 @@ import android.provider.BaseColumns._ID
 import com.example.whatshouldiplay.database.GameContract.GameEntry
 import com.example.whatshouldiplay.database.SQLiteDBHelper
 import com.example.whatshouldiplay.domain.Game
-import com.example.whatshouldiplay.domain.Genre
 
 class GameRepository(context: Context) {
     private val dbHelper = SQLiteDBHelper(context)
@@ -17,7 +16,7 @@ class GameRepository(context: Context) {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
             put(GameEntry.COLUMN_NAME_TITLE, game.name)
-            put(GameEntry.COLUMN_NAME_GENRE, game.genre.name)
+            put(GameEntry.COLUMN_NAME_GENRE, game.genre)
             put(GameEntry.COLUMN_NAME_PLATFORM, game.platform)
             put(GameEntry.COLUMN_NAME_MULTIPLAYER, game.multiPlayer)
         }
@@ -48,7 +47,7 @@ class GameRepository(context: Context) {
             allGames = allGames.filter { game -> game.multiPlayer == multiplayer }
         }
         if (!genre.contains("ALL")) {
-            allGames = allGames.filter { game -> genre.contains(game.genre.name) }
+            allGames = allGames.filter { game -> genre.contains(game.genre) }
         }
         if (!platform.contains("ALL")) {
             allGames = allGames.filter { game -> platform.contains(game.platform) }
@@ -88,7 +87,7 @@ class GameRepository(context: Context) {
         val selection = "$_ID =?"
         val values = ContentValues().apply {
             put(GameEntry.COLUMN_NAME_TITLE, game.name)
-            put(GameEntry.COLUMN_NAME_GENRE, game.genre.name)
+            put(GameEntry.COLUMN_NAME_GENRE, game.genre)
             put(GameEntry.COLUMN_NAME_PLATFORM, game.platform)
             put(GameEntry.COLUMN_NAME_MULTIPLAYER, game.multiPlayer)
         }
@@ -116,7 +115,7 @@ class GameRepository(context: Context) {
                 val game = Game(
                     cursor.getLong(idIndex),
                     cursor.getString(nameIndex),
-                    Genre.valueOf(cursor.getString(genreIndex)),
+                    cursor.getString(genreIndex),
                     cursor.getString(platformIndex),
                     intToBoolean(cursor.getInt(multiplayerIndex))
                 )
