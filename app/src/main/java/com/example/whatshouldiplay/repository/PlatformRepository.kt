@@ -12,7 +12,7 @@ class PlatformRepository(context: Context) {
     fun add(platform: String): Long? {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
-            put(PlatformContract.PlatformEntry.COLUMN_NAME_PLATFORM, platform)
+            put(PlatformContract.PlatformEntry.COLUMN_NAME_PLATFORM, platform.uppercase())
             put(PlatformContract.PlatformEntry.COLUMN_NAME_BUILTIN, 0)
         }
 

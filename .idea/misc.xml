@@ -10,6 +10,9 @@
         <entry key="app/src/main/res/font-v26/spacegrotesk.xml" value="0.1" />
         <entry key="app/src/main/res/font/spacegrotesk.xml" value="0.18981481481481483" />
         <entry key="app/src/main/res/layout/activity_add_game.xml" value="0.3234375" />
+        <entry key="app/src/main/res/layout/activity_add_genre.xml" value="0.2850255330403646" />
+        <entry key="app/src/main/res/layout/activity_add_platform.xml" value="0.34877675374348965" />
+        <entry key="app/src/main/res/layout/activity_configuration.xml" value="0.3636367797851563" />
         <entry key="app/src/main/res/layout/activity_game_added.xml" value="0.3234375" />
         <entry key="app/src/main/res/layout/activity_game_detail.xml" value="0.3356903076171875" />
         <entry key="app/src/main/res/layout/activity_game_library.xml" value="0.3243764241536458" />

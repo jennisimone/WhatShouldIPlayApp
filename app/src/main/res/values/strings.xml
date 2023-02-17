@@ -3,6 +3,7 @@
     <string name="game_selection">What should I play?</string>
     <string name="add_game">Add game</string>
     <string name="game_library">My library</string>
+    <string name="configure">Configure App</string>
 
     <string name="game_name_input">Name of game</string>
     <string name="add_new_game">Add new game</string>
@@ -29,4 +30,10 @@
     <string name="library_filter_genre">Which genre?</string>
     <string name="library_filter_platform">Which platform?</string>
     <string name="show_filter_library">Show filtered library</string>
+
+    <string name="add_genre">Add genre</string>
+    <string name="add_platform">Add platform</string>
+    <string name="genre_name_input">Genre name</string>
+    <string name="platform_name_input">Platform name</string>
+
 </resources>

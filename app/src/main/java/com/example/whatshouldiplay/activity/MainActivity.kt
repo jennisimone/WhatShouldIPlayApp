@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.activity.add.AddGame
+import com.example.whatshouldiplay.activity.add.Configuration
 import com.example.whatshouldiplay.activity.library.LibrarySelection
 import com.example.whatshouldiplay.activity.select.GameSelection
 
@@ -29,6 +30,12 @@ class MainActivity : AppCompatActivity() {
 
     fun gameLibrary(view: View) {
         val intent = Intent(this, LibrarySelection::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    fun configure(view: View) {
+        val intent = Intent(this, Configuration::class.java).apply {
         }
         startActivity(intent)
     }

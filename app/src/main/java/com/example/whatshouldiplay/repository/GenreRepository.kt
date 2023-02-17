@@ -12,7 +12,7 @@ class GenreRepository(context: Context) {
     fun add(genre: String): Long? {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
-            put(GenreEntry.COLUMN_NAME_GENRE, genre)
+            put(GenreEntry.COLUMN_NAME_GENRE, genre.uppercase())
             put(GenreEntry.COLUMN_NAME_BUILTIN, 0)
         }
 

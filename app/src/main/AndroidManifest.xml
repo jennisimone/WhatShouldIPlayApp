@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.add.AddGenre"
+            android:exported="false" />
+        <activity
+            android:name=".activity.add.AddPlatform"
+            android:exported="false" />
+        <activity
+            android:name=".activity.add.Configuration"
+            android:exported="false" />
+        <activity
             android:name=".activity.library.GameDetail"
             android:parentActivityName=".activity.library.GameLibrary" />
         <activity
@@ -33,7 +42,8 @@
         <activity
             android:name=".activity.library.GameFilter"
             android:parentActivityName=".activity.library.LibrarySelection" />
-        <activity android:name=".activity.MainActivity"
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
