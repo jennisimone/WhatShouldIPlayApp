@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:backgroundTint="#80514F4F"
+    android:background="@color/colorPrimary"
     android:backgroundTintMode="src_over"
     tools:context=".activity.add.AddGame">
 
@@ -15,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/add_new_game"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,34 +22,43 @@
 
     <EditText
         android:id="@+id/editTextGameName"
-        android:autofillHints="What's the name of the game?"
         android:layout_width="347dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:autofillHints="What's the name of the game?"
         android:ems="10"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:hint="@string/game_name_input"
         android:inputType="textCapWords"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Spinner
         android:id="@+id/genreSpinner"
         android:layout_width="365dp"
-        android:layout_height="42dp"
+        android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:prompt="@string/genre"
+        android:textSize="30sp"
+        android:theme="@style/SpinnerTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.347"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextGameName" />
 
     <Spinner
         android:id="@+id/platformSpinner"
         android:layout_width="365dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
         android:prompt="@string/platform"
+        android:textSize="30sp"
+        android:theme="@style/SpinnerTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.347"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genreSpinner" />
 
@@ -57,11 +66,11 @@
         android:id="@+id/multiplayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:text="@string/multiplayer"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/platformSpinner" />
 
@@ -69,6 +78,8 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/spacegrotesk_regular"
+        android:paddingHorizontal="8dp"
         android:layout_marginTop="48dp"
         android:alpha="0.7"
         android:background="@color/secondaryButton"

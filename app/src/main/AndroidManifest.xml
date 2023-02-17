@@ -33,7 +33,8 @@
         <activity
             android:name=".activity.library.GameFilter"
             android:parentActivityName=".activity.library.LibrarySelection" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

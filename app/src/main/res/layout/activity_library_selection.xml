@@ -5,50 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:backgroundTint="#80514F4F"
     android:backgroundTintMode="src_over"
     tools:context=".activity.library.LibrarySelection">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/library_options"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/gameSelection"
         android:layout_width="292dp"
         android:layout_height="53dp"
+        android:layout_marginBottom="200dp"
         android:alpha="0.75"
         android:background="@color/primaryButton"
         android:onClick="allGames"
         android:text="@string/library_all"
         android:textColor="@color/white"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/addGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
         android:background="@color/secondaryButton"
         android:alpha="0.75"
         android:onClick="filteredGames"
         android:text="@string/library_filtered"
         android:textColor="@color/white"
+        android:fontFamily="@font/spacegrotesk_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameSelection" />

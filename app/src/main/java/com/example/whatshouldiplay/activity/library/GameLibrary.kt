@@ -42,6 +42,7 @@ class GameLibrary : AppCompatActivity() {
             nameOfGame.textSize = 22.0F
             nameOfGame.tag = row.id
             nameOfGame.setTextColor(Color.WHITE)
+            nameOfGame.setTextAppearance(R.style.LibraryTheme);
 
             row.addView(nameOfGame)
 

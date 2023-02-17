@@ -5,25 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@drawable/background"
-    android:backgroundTint="#80514F4F"
+    android:background="@color/colorPrimary"
     android:backgroundTintMode="src_over"
     tools:context=".activity.library.GameLibrary">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="385dp"
-        android:layout_height="49dp"
+        android:layout_width="381dp"
+        android:layout_height="68dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:text="@string/game_library_description"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="384dp"
-        android:layout_height="709dp"
+        android:layout_width="338dp"
+        android:layout_height="629dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -31,7 +32,7 @@
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0">

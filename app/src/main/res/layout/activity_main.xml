@@ -11,47 +11,51 @@
         android:id="@+id/gameLibrary"
         android:layout_width="128dp"
         android:layout_height="43dp"
-        android:background="@color/tertiaryButton"
         android:alpha="0.75"
+        android:background="@color/tertiaryButton"
         android:onClick="gameLibrary"
         android:text="@string/game_library"
         android:textColor="@color/white"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.039" />
 
     <Button
         android:id="@+id/gameSelection"
         android:layout_width="292dp"
         android:layout_height="53dp"
-        android:background="@color/primaryButton"
         android:alpha="0.75"
+        android:background="@color/primaryButton"
         android:onClick="chooseGame"
         android:text="@string/game_selection"
         android:textColor="@color/white"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.188" />
+        app:layout_constraintVertical_bias="0.656" />
 
     <Button
         android:id="@+id/addGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/secondaryButton"
+        android:layout_marginTop="32dp"
         android:alpha="0.75"
+        android:background="@color/secondaryButton"
         android:onClick="addGame"
         android:text="@string/add_game"
         android:textColor="@color/white"
+        android:fontFamily="@font/spacegrotesk_regular"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameSelection" />
 </androidx.constraintlayout.widget.ConstraintLayout>

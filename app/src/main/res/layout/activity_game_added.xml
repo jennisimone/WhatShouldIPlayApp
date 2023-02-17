@@ -5,45 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:backgroundTint="#80514F4F"
     android:backgroundTintMode="src_over"
     tools:context=".activity.add.GameAdded">
-
-    <TextView
-        android:id="@+id/gameName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:text="@string/app_name"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addMoreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="244dp"
         android:alpha="0.7"
         android:background="@color/primaryButton"
-        android:text="@string/add_another_game"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:onClick="addGame"
+        android:paddingHorizontal="8dp"
+        android:text="@string/add_another_game"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameName" />
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:alpha="0.7"
+        android:paddingHorizontal="8dp"
         android:background="@color/secondaryButton"
-        android:text="@string/back_to_home"
+        android:fontFamily="@font/spacegrotesk_regular"
+        android:textStyle="bold"
         android:onClick="backToHome"
+        android:text="@string/back_to_home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addMoreButton" />
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toEndOf="@+id/addMoreButton"
+        tools:layout_editor_absoluteY="437dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
