@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.whatshouldiplay">
+    package="com.jennisimone.whatshouldiplay">
 
     <application
         android:allowBackup="true"
@@ -10,40 +10,40 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.add.AddGenre"
-            android:exported="false" />
+            android:name="com.jennisimone.whatshouldiplay.activity.add.AddGenre"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.add.Configuration" />
         <activity
-            android:name=".activity.add.AddPlatform"
-            android:exported="false" />
+            android:name="com.jennisimone.whatshouldiplay.activity.add.AddPlatform"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.add.Configuration" />
         <activity
-            android:name=".activity.add.Configuration"
-            android:exported="false" />
+            android:name="com.jennisimone.whatshouldiplay.activity.add.Configuration"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
-            android:name=".activity.library.GameDetail"
-            android:parentActivityName=".activity.library.GameLibrary" />
+            android:name="com.jennisimone.whatshouldiplay.activity.library.GameDetail"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.library.GameLibrary" />
         <activity
-            android:name=".activity.add.GameAdded"
-            android:parentActivityName=".activity.MainActivity" />
+            android:name="com.jennisimone.whatshouldiplay.activity.add.GameAdded"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
-            android:name=".activity.library.GameLibrary"
-            android:parentActivityName=".activity.library.LibrarySelection" />
+            android:name="com.jennisimone.whatshouldiplay.activity.library.GameLibrary"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.library.LibrarySelection" />
         <activity
-            android:name=".activity.add.AddGame"
-            android:parentActivityName=".activity.MainActivity" />
+            android:name="com.jennisimone.whatshouldiplay.activity.add.AddGame"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
-            android:name=".activity.select.GameNameView"
-            android:parentActivityName=".activity.select.GameSelection" />
+            android:name="com.jennisimone.whatshouldiplay.activity.select.GameNameView"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.select.GameSelection" />
         <activity
-            android:name=".activity.select.GameSelection"
-            android:parentActivityName=".activity.MainActivity" />
+            android:name="com.jennisimone.whatshouldiplay.activity.select.GameSelection"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
-            android:name=".activity.library.LibrarySelection"
-            android:parentActivityName=".activity.MainActivity" />
+            android:name="com.jennisimone.whatshouldiplay.activity.library.LibrarySelection"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
-            android:name=".activity.library.GameFilter"
-            android:parentActivityName=".activity.library.LibrarySelection" />
+            android:name="com.jennisimone.whatshouldiplay.activity.library.GameFilter"
+            android:parentActivityName="com.jennisimone.whatshouldiplay.activity.library.LibrarySelection" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.jennisimone.whatshouldiplay.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
