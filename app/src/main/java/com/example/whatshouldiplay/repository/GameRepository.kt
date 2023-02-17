@@ -9,9 +9,6 @@ import com.example.whatshouldiplay.database.GameContract.GameEntry
 import com.example.whatshouldiplay.database.SQLiteDBHelper
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
-import com.example.whatshouldiplay.domain.Platform
-import java.util.*
-import kotlin.collections.ArrayList
 
 class GameRepository(context: Context) {
     private val dbHelper = SQLiteDBHelper(context)
@@ -21,7 +18,7 @@ class GameRepository(context: Context) {
         val values = ContentValues().apply {
             put(GameEntry.COLUMN_NAME_TITLE, game.name)
             put(GameEntry.COLUMN_NAME_GENRE, game.genre.name)
-            put(GameEntry.COLUMN_NAME_PLATFORM, game.platform.name)
+            put(GameEntry.COLUMN_NAME_PLATFORM, game.platform)
             put(GameEntry.COLUMN_NAME_MULTIPLAYER, game.multiPlayer)
         }
 
@@ -54,7 +51,7 @@ class GameRepository(context: Context) {
             allGames = allGames.filter { game -> genre.contains(game.genre.name) }
         }
         if (!platform.contains("ALL")) {
-            allGames = allGames.filter { game -> platform.contains(game.platform.name) }
+            allGames = allGames.filter { game -> platform.contains(game.platform) }
         }
         return allGames
     }
@@ -92,7 +89,7 @@ class GameRepository(context: Context) {
         val values = ContentValues().apply {
             put(GameEntry.COLUMN_NAME_TITLE, game.name)
             put(GameEntry.COLUMN_NAME_GENRE, game.genre.name)
-            put(GameEntry.COLUMN_NAME_PLATFORM, game.platform.name)
+            put(GameEntry.COLUMN_NAME_PLATFORM, game.platform)
             put(GameEntry.COLUMN_NAME_MULTIPLAYER, game.multiPlayer)
         }
         
@@ -120,7 +117,7 @@ class GameRepository(context: Context) {
                     cursor.getLong(idIndex),
                     cursor.getString(nameIndex),
                     Genre.valueOf(cursor.getString(genreIndex)),
-                    Platform.valueOf(cursor.getString(platformIndex)),
+                    cursor.getString(platformIndex),
                     intToBoolean(cursor.getInt(multiplayerIndex))
                 )
                 allGames.add(game)

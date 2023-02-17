@@ -10,8 +10,8 @@ import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
-import com.example.whatshouldiplay.domain.Platform
 import com.example.whatshouldiplay.repository.GameRepository
+import com.example.whatshouldiplay.repository.PlatformRepository
 import kotlinx.android.synthetic.main.activity_add_game.*
 
 const val GAME = "game"
@@ -81,13 +81,9 @@ class GameSelection : AppCompatActivity() {
         return genres
     }
 
-    private fun getPlatformValues(): MutableList<String> {
-        val platforms = Platform.values().toMutableList().map {
-                genre -> genre.toString()
-        }.toMutableList()
-        platforms.add(0, "ALL")
-
-        return platforms
+    private fun getPlatformValues(): List<String> {
+        val platformRepository = PlatformRepository(this)
+        return platformRepository.getAllPlatforms()
     }
 
     private fun getRandomGame(): Game {
@@ -99,7 +95,7 @@ class GameSelection : AppCompatActivity() {
         if (!allGames.isEmpty()) {
             return allGames[0]
         }
-        return Game(0, "Boo 👻 no games found! Add some on the home screen!", Genre.ADVENTURE, Platform.DS, false)
+        return Game(0, "Boo 👻 no games found! Add some on the home screen!", Genre.ADVENTURE, "DS", false)
     }
 
     private fun getFilteredGame(multiplayer: Boolean, genre: Array<String>, platform: Array<String>): Game {
@@ -111,6 +107,6 @@ class GameSelection : AppCompatActivity() {
         if (!allGames.isEmpty()) {
             return allGames[0]
         }
-        return Game(0, "Sorry it looks like you don't have any games that specific.. 😰 Try a different search! ", Genre.ADVENTURE, Platform.DS, false)
+        return Game(0, "Sorry it looks like you don't have any games that specific.. 😰 Try a different search! ", Genre.ADVENTURE, "DS", false)
     }
 }

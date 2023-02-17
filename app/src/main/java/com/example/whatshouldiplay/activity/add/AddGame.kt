@@ -1,19 +1,19 @@
 package com.example.whatshouldiplay.activity.add
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.activity.select.GAME
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
-import com.example.whatshouldiplay.domain.Platform
 import com.example.whatshouldiplay.repository.GameRepository
+import com.example.whatshouldiplay.repository.PlatformRepository
 
 class AddGame : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class AddGame : AppCompatActivity() {
 
         val gameName = gameNameEditText.text.toString()
         val genre = Genre.valueOf(genreSpinner.selectedItem.toString())
-        val platform = Platform.valueOf(platformSpinner.selectedItem.toString())
+        val platform = platformSpinner.selectedItem.toString()
         val multiplayer = multiplayerChip.isChecked
 
         repo.add(Game(0, gameName, genre, platform, multiplayer))
@@ -59,7 +59,12 @@ class AddGame : AppCompatActivity() {
         spinner.adapter = ArrayAdapter(
             this,
             android.R.layout.simple_spinner_item,
-            Platform.values()
+            getPlatformValues()
         )
+    }
+
+    private fun getPlatformValues(): List<String> {
+        val platformRepository = PlatformRepository(this)
+        return platformRepository.getAllPlatforms()
     }
 }

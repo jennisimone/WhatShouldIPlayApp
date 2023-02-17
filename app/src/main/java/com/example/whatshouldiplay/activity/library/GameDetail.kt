@@ -12,8 +12,8 @@ import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.activity.select.GAME
 import com.example.whatshouldiplay.domain.Game
 import com.example.whatshouldiplay.domain.Genre
-import com.example.whatshouldiplay.domain.Platform
 import com.example.whatshouldiplay.repository.GameRepository
+import com.example.whatshouldiplay.repository.PlatformRepository
 
 class GameDetail : AppCompatActivity() {
     private lateinit var game: Game
@@ -45,7 +45,7 @@ class GameDetail : AppCompatActivity() {
 
         val gameName = gameNameEditText.text.toString()
         val genre = Genre.valueOf(genreSpinner.selectedItem.toString())
-        val platform = Platform.valueOf(platformSpinner.selectedItem.toString())
+        val platform = platformSpinner.selectedItem.toString()
         val multiplayer = multiplayerChip.isChecked
 
         game = game.copy(name = gameName,  genre = genre, platform = platform, multiPlayer = multiplayer)
@@ -66,7 +66,7 @@ class GameDetail : AppCompatActivity() {
             setSelection(Genre.values().indexOf(game.genre))
         }
         findViewById<Spinner>(R.id.platformSpinner).apply {
-            setSelection(Platform.values().indexOf(game.platform))
+            setSelection(getPlatformValues().indexOf(game.platform))
         }
         findViewById<SwitchCompat>(R.id.multiplayer).apply {
             isChecked = game.multiPlayer
@@ -94,7 +94,12 @@ class GameDetail : AppCompatActivity() {
         spinner.adapter = ArrayAdapter(
             this,
             android.R.layout.simple_spinner_item,
-            Platform.values()
+            getPlatformValues()
         )
+    }
+
+    private fun getPlatformValues(): List<String> {
+        val platformRepository = PlatformRepository(this)
+        return platformRepository.getAllPlatforms()
     }
 }

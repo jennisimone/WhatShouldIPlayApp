@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.example.whatshouldiplay.R
 import com.example.whatshouldiplay.domain.Genre
-import com.example.whatshouldiplay.domain.Platform
+import com.example.whatshouldiplay.repository.PlatformRepository
 import kotlinx.android.synthetic.main.activity_add_game.*
 
 class GameFilter : AppCompatActivity() {
@@ -64,12 +64,8 @@ class GameFilter : AppCompatActivity() {
         return genres
     }
 
-    private fun getPlatformValues(): MutableList<String> {
-        val platforms = Platform.values().toMutableList().map {
-                genre -> genre.toString()
-        }.toMutableList()
-        platforms.add(0, "ALL")
-
-        return platforms
+    private fun getPlatformValues(): List<String> {
+        val platformRepository = PlatformRepository(this)
+        return platformRepository.getAllPlatforms()
     }
 }
