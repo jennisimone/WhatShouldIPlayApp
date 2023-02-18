@@ -2,12 +2,16 @@ package com.jennisimone.whatshouldiplay.activity.select
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.jennisimone.whatshouldiplay.R
+import com.jennisimone.whatshouldiplay.activity.MainActivity
+import com.jennisimone.whatshouldiplay.activity.add.AddGame
+import com.jennisimone.whatshouldiplay.activity.library.LibrarySelection
 import com.jennisimone.whatshouldiplay.domain.Game
 import com.jennisimone.whatshouldiplay.repository.GameRepository
 import com.jennisimone.whatshouldiplay.repository.GenreRepository
@@ -116,5 +120,23 @@ class GameSelection : AppCompatActivity() {
             completed = false,
             multiPlayer = false
         )
+    }
+
+    fun addGame(item: MenuItem) {
+        val intent = Intent(this, AddGame::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    fun library(item: MenuItem) {
+        val intent = Intent(this, LibrarySelection::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    fun home(item: MenuItem) {
+        val intent = Intent(this, MainActivity::class.java).apply {
+        }
+        startActivity(intent)
     }
 }

@@ -22,6 +22,8 @@
         <entry key="app/src/main/res/layout/activity_library_selection.xml" value="0.3037322998046875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3007436116536458" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.3234375" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3223958333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/main_launch_icon_round.xml" value="0.169" />
       </map>
     </option>
   </component>

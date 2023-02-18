@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/library_menu"
+        android:icon="@drawable/library_icon"
+        android:onClick="library"
+        android:title="@string/library" />
+    <item
+        android:id="@+id/home_menu"
+        android:title="@string/home"
+        android:onClick="home"
+        android:icon="@drawable/home_icon"/>
+    <item
+        android:id="@+id/new_game_menu"
+        android:title="@string/add_game"
+        android:onClick="addGame"
+        android:icon="@drawable/new_game_icon"/>
+</menu>
