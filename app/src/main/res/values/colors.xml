@@ -7,5 +7,6 @@
     <color name="secondaryButton">#6536D1</color>
     <color name="tertiaryButton">#6536D1</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="textPrimary">#6536D1</color>
 </resources>

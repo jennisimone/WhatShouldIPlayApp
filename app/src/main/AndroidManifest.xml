@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="LockedOrientationActivity"
     package="com.jennisimone.whatshouldiplay">
 
     <application
@@ -11,39 +13,63 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.add.AddGenre"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.add.Configuration" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.add.AddPlatform"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.add.Configuration" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.add.Configuration"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.library.GameDetail"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.library.GameLibrary" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.add.GameAdded"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.library.GameLibrary"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.library.LibrarySelection" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.add.AddGame"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.select.GameNameView"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.select.GameSelection" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.select.GameSelection"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.library.LibrarySelection"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.MainActivity" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.library.GameFilter"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.jennisimone.whatshouldiplay.activity.library.LibrarySelection" />
         <activity
             android:name="com.jennisimone.whatshouldiplay.activity.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

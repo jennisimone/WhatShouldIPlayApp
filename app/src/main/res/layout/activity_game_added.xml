@@ -4,31 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/raised_background"
     android:backgroundTintMode="src_over"
     tools:context=".activity.add.GameAdded">
-
-    <TextView
-        android:id="@+id/gameName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/spacegrotesk_regular"
-        android:text="@string/app_name"
-        android:textColor="@color/textPrimary"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
 
     <Button
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="228dp"
         android:alpha="0.7"
         android:background="@color/secondaryButton"
         android:fontFamily="@font/spacegrotesk_regular"
@@ -42,12 +27,27 @@
         app:layout_constraintStart_toEndOf="@+id/addMoreButton"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/gameName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/spacegrotesk_regular"
+        android:text="@string/app_name"
+        android:textColor="@color/textPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
+
     <Button
         android:id="@+id/addMoreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="228dp"
         android:alpha="0.7"
         android:background="@color/primaryButton"
         android:fontFamily="@font/spacegrotesk_regular"

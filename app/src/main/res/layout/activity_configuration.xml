@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/raised_background"
     tools:context=".activity.add.Configuration">
 
     <Button
@@ -24,23 +24,23 @@
         app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <Button
         android:id="@+id/addPlatform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="148dp"
+        android:layout_marginBottom="280dp"
         android:alpha="0.75"
         android:background="@color/secondaryButton"
         android:fontFamily="@font/spacegrotesk_regular"
         android:onClick="addPlatform"
+        android:paddingHorizontal="8dp"
         android:text="@string/add_platform"
         android:textColor="@color/white"
-        android:paddingHorizontal="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"

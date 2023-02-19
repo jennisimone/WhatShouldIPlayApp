@@ -4,21 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/raised_background"
     android:backgroundTintMode="src_over"
     tools:context=".activity.library.LibrarySelection">
+
 
     <Button
         android:id="@+id/gameSelection"
         android:layout_width="292dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="336dp"
         android:alpha="0.75"
         android:background="@color/primaryButton"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:onClick="allGames"
         android:text="@string/library_all"
         android:textColor="@color/white"
-        android:fontFamily="@font/spacegrotesk_regular"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,18 +30,17 @@
         android:id="@+id/addGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingHorizontal="16dp"
-        android:background="@color/secondaryButton"
+        android:layout_marginTop="20dp"
         android:alpha="0.75"
+        android:background="@color/secondaryButton"
+        android:fontFamily="@font/spacegrotesk_regular"
         android:onClick="filteredGames"
+        android:paddingHorizontal="16dp"
         android:text="@string/library_filtered"
         android:textColor="@color/white"
-        android:fontFamily="@font/spacegrotesk_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameSelection" />
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
