@@ -10,6 +10,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jennisimone.whatshouldiplay.R
 import com.jennisimone.whatshouldiplay.activity.MainActivity
 import com.jennisimone.whatshouldiplay.activity.add.AddGame
@@ -31,6 +32,9 @@ class GameDetail : AppCompatActivity() {
 
         game = getGame()
         populateForm()
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav.menu.getItem(3).isChecked = true
     }
 
     fun save(view: View) {

@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jennisimone.whatshouldiplay.R
 import com.jennisimone.whatshouldiplay.activity.MainActivity
 import com.jennisimone.whatshouldiplay.activity.library.LibrarySelection
@@ -15,6 +16,9 @@ class AddGenre : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_genre)
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav.menu.getItem(3).isChecked = true
     }
 
     fun addGenre(view: View) {

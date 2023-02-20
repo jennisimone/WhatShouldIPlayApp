@@ -8,6 +8,7 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jennisimone.whatshouldiplay.R
 import com.jennisimone.whatshouldiplay.activity.MainActivity
 import com.jennisimone.whatshouldiplay.activity.add.AddGame
@@ -19,6 +20,9 @@ class GameLibrary : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_library)
         populateRows()
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav.menu.getItem(3).isChecked = true
     }
 
     private fun getGameInfo(gameName: String) {

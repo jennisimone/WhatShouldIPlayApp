@@ -15,4 +15,9 @@
         android:title="@string/add_game"
         android:onClick="addGame"
         android:icon="@drawable/new_game_icon"/>
+    <item
+        android:id="@+id/invisible"
+        android:visible="false"
+        android:icon="@drawable/new_game_icon"
+        android:title="@string/app_name" />
 </menu>

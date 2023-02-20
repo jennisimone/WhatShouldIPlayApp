@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jennisimone.whatshouldiplay.R
 import com.jennisimone.whatshouldiplay.activity.MainActivity
 import com.jennisimone.whatshouldiplay.activity.library.LibrarySelection
@@ -21,6 +22,9 @@ class GameAdded : AppCompatActivity() {
         findViewById<TextView>(R.id.gameName).apply {
             text = "$gameName has been added, add another?"
         }
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav.menu.getItem(3).isChecked = true
     }
 
     fun addGame(view: View) {
